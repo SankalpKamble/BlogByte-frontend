@@ -1,13 +1,12 @@
 import React from "react";
-import { react } from "@vitejs/plugin-react";
 import { assets } from "../../assets/assets";
 
-const CommentTableItem = ({ comment, fetchComment }) => {
+const CommentTableItem = ({ comment, fetchComments }) => {
   const { blog, createdAt, _id } = comment;
   const BlogDate = new Date(createdAt);
   return (
     <tr className="order-y border-gray-300">
-      <td classNamepx-6 py-4d>
+      <td className="px-6 py-4">
         <b className="font-medium text-gray-600">Blog</b> : {blog.title}
         <br />
         <br />
@@ -20,8 +19,8 @@ const CommentTableItem = ({ comment, fetchComment }) => {
         {BlogDate.toLocaleDateString()}
       </td>
 
-      <td className="px-6 py-4">
-        <div>
+      <td className="px-6 py-4 ">
+        <div className="inline-flex items-center gap-4">
           {!comment.isApproved ? (
             <img
               src={assets.tick_icon}
